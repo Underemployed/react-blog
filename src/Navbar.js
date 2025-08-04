@@ -1,17 +1,17 @@
+import "./index.css"
 const Navbar = () => {
     return ( 
-        <div className="nav">
+        <nav className="nav">
             <div className="title">
                 <h1>
-                    Anime Blog
+                    AniNews
                 </h1>
             </div>
-            <div className="links">
+            <div className="nav__links">
                 <a href="/">Home</a>
-                <a href="/create">Add Blog</a>
+                <a href="/create"> Blog</a>
             </div>
-            div
-        </div>
+        </nav>
      );
 }
  
