@@ -39,4 +39,6 @@
   background-color: #f1356d;
   border-radius: 8px;
   padding: 1rem;
+  border: none;
+  margin-left: 1rem;
 }
