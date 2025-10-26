@@ -6,13 +6,14 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
 
-    // can be used to fetch data
     // npx json-server --watch data/db.json --port 8000
     useEffect(() => {
+        const abortCont = new AbortController();
         console.log("Runs when dom changes?");
-        fetch(url).then(
+        fetch(
+            url, { signal: abortCont.signal }
+        ).then(
             (response) => {
-                // console.log(response);
                 if (!response.ok) {
                     throw Error("Error: Couldnt fetch data for that resource");
                 }
@@ -25,11 +26,15 @@ const useFetch = (url) => {
                     setData(data);
                 }, 1000);
             }).catch((err) => {
-                console.log(err.message);
-                setIsPending(false);
-                setError(err.message);
+                if (err.name !== "AbortError") {
+                    console.log(err.message);
+                    setIsPending(false);
+                    setError(err.message);
+                }
             });
-    
+        return () => {
+            abortCont.abort();
+        }
     }, [url])
     return { data, isPending, error }
 
