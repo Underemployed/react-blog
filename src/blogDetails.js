@@ -10,7 +10,9 @@ const BlogDetails = () => {
             {isPending && <div>Loading...</div>}
             {error && <div> {error}</div>}
             {blog && <article>
-                <h2>{blog.title}</h2>
+                <div>
+                    <h2>{blog.title}</h2>
+                </div>
                 <div>Written by {blog.author}</div>
                 <div> {blog.body}</div>
             </article>}
