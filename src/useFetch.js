@@ -15,7 +15,7 @@ const useFetch = (url) => {
         ).then(
             (response) => {
                 if (!response.ok) {
-                    throw Error("Error: Couldnt fetch data for that resource");
+                    throw Error("Couldnt fetch data for that resource");
                 }
                 return response.json()
             })
