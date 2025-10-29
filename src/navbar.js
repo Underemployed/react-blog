@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 const Navbar = () => {
-    return ( 
+    return (
         <div className="navbar">
             <h1>Blog</h1>
             <div className="links">
@@ -8,11 +8,11 @@ const Navbar = () => {
                 <Link to="/create" style={{
                     color: "white",
                     backgroundColor: "#f1356d",
-                    borderRadius : "8px"
+                    borderRadius: "8px"
                 }}>Create</Link>
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default Navbar;
