@@ -1,0 +1,44 @@
+import Navbar from './navbar';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './create';
+import BlogDetails from './blogDetails';
+import NotFound from './notFound';
+
+
+function App() {
+
+  
+
+
+  return (
+    // router -> switch -> route -> page
+    <Router>
+      <div className='App'>
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route exact path ="/">
+                <Home/>
+            </Route>
+            <Route exact path ="/create">
+                <Create/>
+            </Route>
+            <Route exact path ="/blog/:id">
+                <BlogDetails/>
+            </Route>
+            {/* 404 not found */}
+            <Route  path ="*">
+                <NotFound/>
+            </Route>
+
+          </Switch>
+        </div>
+      </div>
+    </Router>
+  );
+
+
+}
+
+export default App;
